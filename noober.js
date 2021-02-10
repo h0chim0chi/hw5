@@ -95,18 +95,30 @@ window.addEventListener('DOMContentLoaded', function() {
     console.log('Noober-Purple clicked')
     let response = await fetch('https://kiei451.com/api/rides.json')
     let json = await response.json()
-    letnewArray = []
+    let purpleArray = []
     for (let i=0, i<json.length; i++) {
-      newArray.push(json[i])
+      let level = levelOfService(json[i])
+      if (level=="Noober Purple" 
+      })
+      purpleArray.push(json[i])
     }
-    renderRides(newArray)
+    renderRides(purpleArray)
   })
  
-  let PoolRide = document.querySelector('#noober-pool-filter')
-  PoolRide.addEventListener('click', async function(event) {
+//Grab Noober-Pool
+let nooberpool = document.querySelector('#noober-pool-filter')
+nooberpool.addEventListener('click', async function(event) {
+  document.querySelector('.rides').innerhtml = ''
   console.log(PoolRide)
-  console.log('Noober Pool clicked')
+  console.log('Noober-Pool clicked')
   event.preventDefault() 
-  
+  let response = await fetch('https://kiei451.com/api/rides.json')
+    let json = await response.json()
+    let poolArray = []
+    for (let i=0, i<json.length; i++) {
+      poolArray.push(json[i])
+    }
+    renderRides(poolArray)
+  })
   
 
